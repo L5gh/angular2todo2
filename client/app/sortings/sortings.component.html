@@ -1,0 +1,97 @@
+<app-loading [condition]="isLoading"></app-loading>
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card" *ngIf="!isLoading">
+  <h4 class="card-header">クラス管理画面 (登録クラス数：{{sortings.length}})</h4>
+  <div class="card-block">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-default">
+        <tr>
+          <th>クラス名</th>
+          <th>編集/削除</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="sortings.length === 0">
+        <tr>
+          <td colspan="4">クラスが登録されていません。</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!isEditing">
+        <tr *ngFor="let sorting of sortings">
+          <td>{{sorting.className}}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-warning"
+              (click)="enableEditing(sorting)">
+                <i class="fa fa-pencil"></i> 編集
+            </button>
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="deleteSorting(sorting)">
+                <i class="fa fa-trash"></i> 削除
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="isEditing">
+        <tr>
+          <td colspan="4">
+            <form
+              class="form-inline"
+              #form="ngForm"
+              (ngSubmit)="editSorting(sorting)"
+              style="display:inline">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="className"
+                  [(ngModel)]="sorting.className"
+                  placeholder="クラス名"
+                  required>
+              </div>
+              <button
+                class="btn btn-sm btn-primary"
+                type="submit"
+                [disabled]="!form.form.valid">
+                <i class="fa fa-floppy-o"></i> 保存
+              </button>
+            </form>
+            <button
+              class="btn btn-sm btn-warning"
+              (click)="cancelEditing()">
+                <i class="fa fa-times"></i> キャンセル
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card" *ngIf="!isEditing">
+  <h4 class="card-header">クラスの登録</h4>
+  <div class="card-block">
+    <form
+      class="form-inline"
+      [formGroup]="addSortingForm"
+      (ngSubmit)="addSorting()"
+      style="text-align:center">
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          name="className"
+          formControlName="className"
+          placeholder="クラス名">
+      </div>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!addSortingForm.valid">
+          <i class="fa fa-floppy-o"></i> 登録
+      </button>
+    </form>
+  </div>
+</div>

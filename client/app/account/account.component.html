@@ -1,0 +1,40 @@
+<app-loading [condition]="isLoading"></app-loading>
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card" *ngIf="!isLoading">
+  <h4 class="card-header">アカウント設定</h4>
+  <div class="card-block">
+    <form #accountForm="ngForm" (ngSubmit)="save(user)">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input class="form-control" type="text" name="username" [(ngModel)]="user.username" placeholder="氏名" required>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <input class="form-control" type="email" name="email" [(ngModel)]="user.email" placeholder="Email(アカウント)" required>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-child"></i></span>
+        <input class="form-control" type="text" name="childrenName" [(ngModel)]="user.childrenName" placeholder="園児指名" required>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-money"></i></span>
+        <input class="form-control" type="text" name="income" [(ngModel)]="user.income" placeholder="年収" required>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-black-tie"></i></span>
+        <select class="form-control" name="role" [(ngModel)]="user.role">
+          <option value="" disabled>区分</option>
+          <option value="user">利用者</option>
+          <option value="admin">園担当者</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!accountForm.form.valid">
+        <i class="fa fa-save"></i> 登録
+      </button>
+    </form>
+  </div>
+</div>
