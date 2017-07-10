@@ -14,7 +14,7 @@ import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
-  { path: 'sortings', component: SortingsComponent },
+  { path: 'sortings', component: SortingsComponent, canActivate: [AuthGuardLogin]  },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },

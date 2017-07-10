@@ -1,35 +1,79 @@
-<app-loading [condition]="isLoading"></app-loading>
+<app-loading [condition]="isLoading">
+</app-loading>
 
-<app-toast [message]="toast.message"></app-toast>
+<app-toast [message]="toast.message">
+</app-toast>
 
-<div class="card" *ngIf="!isLoading">
-  <h4 class="card-header">Registered users ({{users.length}})</h4>
+<div
+  class="card"
+  *ngIf="!isLoading">
+  <h4 class="card-header">
+    登録者一覧 (登録者数：{{users.length}})
+  </h4>
   <div class="card-block">
     <table class="table table-bordered table-striped">
       <thead class="thead-default">
         <tr>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Actions</th>
+          <th>
+            氏名
+          </th>
+          <th>
+            Email(アカウント)
+          </th>
+          <th>
+            区分
+          </th>
+          <th>
+            クラス名
+          </th>
+          <th>
+            園児名
+          </th>
+          <th>
+            所得
+          </th>
+          <th>
+            削除
+          </th>
         </tr>
       </thead>
       <tbody *ngIf="users.length === 0">
         <tr>
-          <td colspan="4">There are no registered users.</td>
-        </tr>  
+          <td colspan="7">
+            登録者情報がありません。登録を行うかDBを確認してください。
+          </td>
+        </tr>
       </tbody>
       <tbody>
         <tr *ngFor="let user of users">
-          <td>{{user.username}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.role}}</td>
           <td>
-            <button class="btn btn-sm btn-danger" (click)="deleteUser(user)" [disabled]="auth.currentUser._id === user._id">
-              <i class="fa fa-trash"></i>
+            {{user.username}}
+          </td>
+          <td>
+            {{user.email}}
+          </td>
+          <td>
+            {{user.role}}
+          </td>
+          <td>
+            {{user.className}}
+          </td>
+          <td>
+            {{user.childrenName}}
+          </td>
+          <td>
+            {{user.income}}
+          </td>
+          <td>
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="deleteUser(user)"
+              [disabled]="auth.currentUser._id === user._id">
+              <i class="fa fa-trash">
+              </i>
             </button>
           </td>
-        </tr>  
+        </tr>
       </tbody>
     </table>
   </div>

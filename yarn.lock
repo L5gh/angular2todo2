@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@angular/animations@^4.0.0":
+  version "4.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.2.5.tgz#1230f6bc6a18f2abb23e27f1d9ae9efafd1a6031"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/cli@1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.1.0.tgz#ce6868cef39e694a84a9e3ebfb802de81c463bbd"
@@ -240,6 +246,24 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular-calendar@^0.18.3:
+  version "0.18.3"
+  resolved "https://registry.yarnpkg.com/angular-calendar/-/angular-calendar-0.18.3.tgz#c600848302c2f8c8f9e470c5d4167fa6407536b6"
+  dependencies:
+    angular-draggable-droppable "^1.0.1"
+    angular-resizable-element "^1.1.1"
+    calendar-utils "0.0.56"
+    date-fns "^1.28.5"
+    positioning "^1.0.4"
+
+angular-draggable-droppable@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/angular-draggable-droppable/-/angular-draggable-droppable-1.0.1.tgz#7ad70c310994b0f980f40d382dce59946fe30dcf"
+
+angular-resizable-element@^1.1.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/angular-resizable-element/-/angular-resizable-element-1.2.0.tgz#a29b5e70ba46a95782d148ccb3fa6206227fe23a"
 
 angular2-jwt@^0.2.3:
   version "0.2.3"
@@ -755,6 +779,10 @@ bytes@2.3.0:
 bytes@2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-2.4.0.tgz#7d97196f9d5baf7f6935e25985549edd2a6c2339"
+
+calendar-utils@0.0.56:
+  version "0.0.56"
+  resolved "https://registry.yarnpkg.com/calendar-utils/-/calendar-utils-0.0.56.tgz#db6dbbbca8eceeb2107d86e0fd1f80c55a3abfa4"
 
 callsite@1.0.0:
   version "1.0.0"
@@ -1306,7 +1334,7 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-date-fns@^1.23.0:
+date-fns@^1.23.0, date-fns@^1.28.5:
   version "1.28.5"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.28.5.tgz#257cfc45d322df45ef5658665967ee841cd73faf"
 
@@ -3319,12 +3347,27 @@ mongodb-core@2.1.11:
     bson "~1.0.4"
     require_optional "~1.0.0"
 
+mongodb-core@2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-2.1.13.tgz#771ef638270ac993ab42984689ab824251b96a88"
+  dependencies:
+    bson "~1.0.4"
+    require_optional "~1.0.0"
+
 mongodb@2.2.27:
   version "2.2.27"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-2.2.27.tgz#34122034db66d983bcf6ab5adb26a24a70fef6e6"
   dependencies:
     es6-promise "3.2.1"
     mongodb-core "2.1.11"
+    readable-stream "2.2.7"
+
+mongodb@^2.2.29:
+  version "2.2.29"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-2.2.29.tgz#36b244126f26766c5ebd6465b8ab5b542d6833c5"
+  dependencies:
+    es6-promise "3.2.1"
+    mongodb-core "2.1.13"
     readable-stream "2.2.7"
 
 mongoose@4.10.8:
@@ -3850,6 +3893,10 @@ portfinder@^1.0.9, portfinder@~1.0.12:
     async "^1.5.2"
     debug "^2.2.0"
     mkdirp "0.5.x"
+
+positioning@^1.0.4:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/positioning/-/positioning-1.3.0.tgz#2db4c82ef8f5cefbc585005a2ca6e247d75a7062"
 
 postcss-calc@^5.2.0:
   version "5.3.1"
